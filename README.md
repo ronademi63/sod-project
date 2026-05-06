@@ -57,8 +57,30 @@ The demo outputs a 4-panel figure showing the input image, saliency map, binary 
 - Training: 40 epochs with early stopping
 
 ## Requirements
-- Python 3.9+
-- PyTorch 2.0+ with CUDA
+
+### Hardware
 - NVIDIA GPU recommended (tested on RTX 5070 12GB)
 - 8GB+ RAM
 - ~500MB disk space for dataset
+
+### Software
+- Python 3.9+
+- PyTorch 2.0+ with CUDA 12.4+
+- torchvision 0.15+
+- numpy 1.24+
+- opencv-python 4.7+
+- matplotlib 3.7+
+- scikit-learn 1.2+
+- tqdm 4.65+
+- kaggle 1.5+
+
+### Install all dependencies
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install numpy opencv-python matplotlib scikit-learn tqdm kaggle jupyter
+
+### Tested Environment
+- OS: Windows 11
+- GPU: NVIDIA GeForce RTX 5070 12GB
+- CUDA: 12.8
+- Python: 3.13.5
+- PyTorch: 2.12.0
