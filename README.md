@@ -29,3 +29,36 @@ Uses the DUTS dataset — download from [Kaggle](https://www.kaggle.com/datasets
 ## How to Run
 
 ### Install dependencies
+### 1. Clone the repository
+### 2. Create a virtual environment
+### 3. Install PyTorch with GPU support (CUDA 12.4)
+### 4. Install remaining dependencies
+### 5. Download the dataset
+Create a Kaggle account at https://www.kaggle.com, go to Settings → API → Create New Token, then run:
+### 6. Train the model
+Training runs for 40 epochs with early stopping. The best model is automatically saved as `best_model_unet.pth`. A checkpoint is saved after every epoch so training can be resumed if interrupted.
+
+### 7. Evaluate on the test set
+This will print IoU, Precision, Recall and F1-Score on the test set, and save a visualization of 4 sample predictions to `results_visualization.png`.
+
+### 8. Run the demo on a random test image
+### 9. Run the demo on your own image
+
+
+The demo outputs a 4-panel figure showing the input image, saliency map, binary mask, and overlay. Inference time is displayed in the title.
+
+## Architecture
+- Custom U-Net encoder-decoder with skip connections
+- Encoder: 4 conv blocks (64 → 128 → 256 → 512 channels)
+- Bottleneck: 1024 channels
+- Decoder: 4 upsampling blocks with skip connections
+- Loss: Binary Cross-Entropy + 0.5 × IoU Loss
+- Optimizer: Adam (lr=1e-3)
+- Training: 40 epochs with early stopping
+
+## Requirements
+- Python 3.9+
+- PyTorch 2.0+ with CUDA
+- NVIDIA GPU recommended (tested on RTX 5070 12GB)
+- 8GB+ RAM
+- ~500MB disk space for dataset
